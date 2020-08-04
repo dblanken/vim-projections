@@ -20,7 +20,7 @@ possibly not need rails.vim.
 Short answer, I needed rails.vim, but I was able to extract a "good enough"
 projection file that could be used.
 
-I then began looking at vue code, and really missed something like Esource.  So
+I then began looking at vue code, and really missed something like Ecomponent.  So
 I attempted to write a new projections file.  I am by no means an experienced
 Vue developer, so I have no idea what the starting point of a vue project would
 be except by looking at the structure.  I thought it would be nice if I could
