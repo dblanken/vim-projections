@@ -1,7 +1,5 @@
 {
-    "*": {
-        "console": "npm run serve || yarn serve"
-    },
+    "*": { "console": "npm run serve" },
     "src/components/*.vue": {
         "type": "component"
     },
