@@ -8,6 +8,26 @@ have a sane default when starting a new project without having to create your
 own or find the location of the last projections file you had in a different
 project.
 
+## Why
+
+This spawned from a commit message that I can't seem to find now by tpope
+regarding a completely different thread.  In it, he explained that the solution
+to it would require separating the projectionist specific parts out of
+rails.vim, which would be tedious.  I decided to look at the rails.vim source
+and extract what I could out of it into a projectionist file to use as a way to
+possibly not need rails.vim.
+
+Short answer, I needed rails.vim, but I was able to extract a "good enough"
+projection file that could be used.
+
+I then began looking at vue code, and really missed something like Esource.  So
+I attempted to write a new projections file.  I am by no means an experienced
+Vue developer, so I have no idea what the starting point of a vue project would
+be except by looking at the structure.  I thought it would be nice if I could
+go to a repo to get the projections file for that file as a base so I could
+then focus on the application or project than how my editor is working on the
+app/project.
+
 ## Contributions
 
 You are free to make pull requests adding new projections.  I ask that these
