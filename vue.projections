@@ -1,0 +1,13 @@
+{
+    "src/components/*.vue": {
+        "type": "component"
+    },
+    "App.vue": {
+        "type": "app",
+        "alternate": "main.js"
+    },
+    "main.js": {
+        "type": "main",
+        "alternate": "App.vue"
+    }
+}
