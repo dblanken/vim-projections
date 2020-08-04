@@ -280,5 +280,9 @@
       "template": ["Feature: {underscore|capitalize|blank}"],
       "type": "integration test"
     }
+  },
+  "test/fixtures/*.yml": {
+      "type": "fixture",
+      "alternate": "app/models/{singular}.rb"
   }
 }
