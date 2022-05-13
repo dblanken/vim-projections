@@ -1,5 +1,5 @@
 {
-  "*": { "make": "bin/rails" },
+  "*": { "make": "bin/rails default" },
   "public/*": { "dispatch": ":Preview" },
   "app/*.rb": { "alternate": ["test/{}_test.rb", "spec/{}_spec.rb"] },
   "Gemfile": { "alternate": "Gemfile.lock", "type": "lib" },
@@ -20,7 +20,8 @@
       "class {camelcase|capitalize|colons}Controller < ApplicationController",
     "end"
     ],
-    "type": "controller"
+    "type": "controller",
+    "dispatch": "bin/rails test test/controllers/{}_controller_test.rb"
   },
   "app/controllers/concerns/*.rb": {
     "affinity": "controller",
@@ -34,7 +35,8 @@
   "app/helpers/*_helper.rb": {
     "affinity": "controller",
     "template": ["module {camelcase|capitalize|colons}Helper", "end"],
-    "type": "helper"
+    "type": "helper",
+    "dispatch": "bin/rails test test/helpers/{}_helper_test.rb"
   },
   "app/jobs/*_job.rb": {
     "affinity": "model",
@@ -54,7 +56,8 @@
   "app/models/*.rb": {
     "affinity": "model",
     "template": ["class {camelcase|capitalize|colons}", "end"],
-    "type": "model"
+    "type": "model",
+    "dispatch": "bin/rails test test/models/{}_test.rb"
   },
   "test/models/*_test.rb": {
     "type": "modeltest",
@@ -284,5 +287,38 @@
   "test/fixtures/*.yml": {
       "type": "fixture",
       "alternate": "app/models/{singular}.rb"
+  },
+  "app/validators/*_validator.rb": {
+    "type": "validator",
+    "template": [
+      "class {camelcase|capitalize|colons}Validator < ActiveModel::EachValidator",
+      "  def validate_each(record, attribute, value)",
+      "    unless value.match?(/\\A\\z/i)",
+      "      record.errors.add attribute, (options[:message] || \"is not an email\")",
+      "    end",
+      "  end",
+      "end"
+    ]
+  },
+  "config/app/*.yml": {
+    "type": "configuration",
+    "template": [
+      "defaults: &defaults",
+      "",
+      "development:",
+      "  <<: *defaults",
+      "",
+      "test:",
+      "  <<:: *defaults",
+      "",
+      "production:",
+      "  <<: *defaults"
+    ]
+  },
+  "test/system/*_test.rb": {
+    "type": "system_test"
+  },
+  "test/support/*.rb": {
+    "type": "support"
   }
 }
