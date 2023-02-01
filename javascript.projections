@@ -1,0 +1,15 @@
+{
+  "*": { "console": "npm run start" },
+  "src/*.js": {
+    "type": "javascript",
+    "alternate": "test/{}.test.js"
+  },
+  "test/*.test.js": {
+    "type": "test",
+    "alternate": "src/{}.js"
+  },
+  "package.json": {
+    "type": "package",
+    "alternate": "package.lock"
+  }
+}
